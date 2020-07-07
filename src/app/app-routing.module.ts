@@ -5,6 +5,15 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren : () => import('./starter/starter.module').then(m => m.StartModule),
+  },
+  {
+    path: 'project-tracker',
+    loadChildren : () => import('./tracker/project/project-tracker.module').then(m => m.ProjectTrackerModule),
+  },
+  {
+    path: '',
+    redirectTo: '/app',
+    pathMatch: 'full'
   }
 ];
 
