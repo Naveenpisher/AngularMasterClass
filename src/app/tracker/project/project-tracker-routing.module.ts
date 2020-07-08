@@ -5,6 +5,7 @@ import { ProjectTrackerDashboardComponent } from './dashboard/project-tracker-da
 import { PTrackerProjectListComponent } from './project-list/p-tracker-project-list.component';
 import { ProjectTrackerWorkSpaceListComponent } from './workspace-list/project-tracker-workspace.component';
 import { ProjectTrackerProjectWrapperComponent } from './project-wrapper/project-wrapper.component';
+import { AuthGuard } from 'src/app/guards/auth-guard';
 
 const routes: Routes = [
     {
@@ -23,11 +24,13 @@ const routes: Routes = [
                 path: 'workspace-list',
                 component: ProjectTrackerWorkSpaceListComponent
               }
-            ]
+            ],
+            canActivate: [AuthGuard]
           },
           {
             path: 'project',
-            component: ProjectTrackerProjectWrapperComponent
+            component: ProjectTrackerProjectWrapperComponent,
+            canActivate: [AuthGuard]
           }
         ]
     },
