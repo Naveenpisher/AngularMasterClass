@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { mockUsers } from 'src/assets/data/mock-data';
+import { User } from '../model/user.model';
 
 
-const users: any[] = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+const users: User[] = mockUsers;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -20,7 +22,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function handleRoute() {
             switch (true) {
-                case url.endsWith('/users/authenticate') && method === 'POST':
+                case url.endsWith('/users/login') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
@@ -36,16 +38,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
             if (!user) { return error('Username or password is incorrect'); }
-            return ok({
-                id: user.id,
-                username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName
-            });
+            user.authdata = window.btoa(`${username}:${password}`)
+            return ok(user);
         }
 
         function getUsers() {
-            if (!isLoggedIn()) {return unauthorized(); }
+            if (!isLoggedIn()) { return unauthorized(); }
             return ok(users);
         }
 
