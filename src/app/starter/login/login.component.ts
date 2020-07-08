@@ -13,9 +13,12 @@ export class LoginComponent {
     private userAuthService: UserAuthService,
     private router: Router) {
   }
-  title = 'ProjectManagement';
+  public userLoginData = {
+    userName : '',
+    password: '',
+  };
   public logIn() {
-    this.userAuthService.login('test', 'test')
+    this.userAuthService.login(this.userLoginData.userName, this.userLoginData.password)
       .pipe(first())
       .subscribe(
         data => {

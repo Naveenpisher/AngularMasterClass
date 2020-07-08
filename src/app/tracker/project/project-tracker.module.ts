@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectTrackerNavComponent } from './navbar/project-tracker-navbar.component';
-import { ProjectTrackerHomeComponent } from './home/project-tracker-home.component';
-import { ProjectTrackerDashboardComponent } from './dashboard/project-tracker-dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { ProjectTrackerNavComponent } from './components/navbar/project-tracker-navbar.component';
+import { ProjectTrackerHomeComponent } from './components/home/project-tracker-home.component';
+import { ProjectTrackerDashboardComponent } from './components/dashboard/project-tracker-dashboard.component';
 import { ProjectTrackerRoutingModule } from './project-tracker-routing.module';
-import { PTrackerProjectListComponent } from './project-list/p-tracker-project-list.component';
-import { ProjectTrackerWorkSpaceListComponent } from './workspace-list/project-tracker-workspace.component';
-import { ProjectTrackerProjectWrapperComponent } from './project-wrapper/project-wrapper.component';
-import { ProjectTrackerSidebarComponent } from './sidebar/project-tracker-sidebar.componnet';
-import { ProjectTrackerStoryListComponent } from './story-list/project-tracker-story-list.component';
-import { ProjectTrackerStoryViewComponent } from './story/project-tracker-story-view.component';
+import { PTrackerProjectListComponent } from './components/project-list/p-tracker-project-list.component';
+import { ProjectTrackerProjectWrapperComponent } from './components/project-wrapper/project-wrapper.component';
+import { ProjectTrackerSidebarComponent } from './components/sidebar/project-tracker-sidebar.componnet';
+import { ProjectTrackerStoryListComponent } from './components/story-list/project-tracker-story-list.component';
+import { ProjectTrackerStoryViewComponent } from './components/story/project-tracker-story-view.component';
+import { ProjectTrackerWorkSpaceListComponent } from './components/workspace-list/project-tracker-workspace.component';
+import { ProjectService } from './services/project.service';
 
 
 @NgModule({
@@ -26,8 +28,9 @@ import { ProjectTrackerStoryViewComponent } from './story/project-tracker-story-
     ],
     imports: [
         CommonModule,
-        ProjectTrackerRoutingModule
+        ProjectTrackerRoutingModule,
+        FormsModule
     ],
-    providers: [],
+    providers: [ProjectService],
 })
 export class ProjectTrackerModule { }

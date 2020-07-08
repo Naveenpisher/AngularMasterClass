@@ -1,8 +1,9 @@
 export class User {
-    id: number;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    authdata?: string;
+    public email: string;
+    public id: number;
+    public username: string;
+    public password: string;
+    public firstName: string;
+    public lastName: string;
+    public authdata?: string;
 }

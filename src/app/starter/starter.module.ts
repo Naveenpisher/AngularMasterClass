@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { StartRoutingModule } from './start-routing-module';
 import { StarterHomeComponent } from './home/starter-home.component';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +19,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ],
     imports: [
         CommonModule,
-        StartRoutingModule
+        StartRoutingModule,
+        FormsModule
     ],
     providers: [],
 })
