@@ -5,8 +5,8 @@
     <app-project-tracker-sidebar></app-project-tracker-sidebar>
 
     <div id="page-content-wrapper">
-      <div>
-        <app-project-tracker-story-list></app-project-tracker-story-list>
+      <div *ngIf="projects && projects.stories && projects.stories.stories">
+        <app-project-tracker-story-list [stories]="projects.stories.stories"></app-project-tracker-story-list>
       </div>
     </div>
   </div>

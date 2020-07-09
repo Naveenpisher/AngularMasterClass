@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-project-tracker-story-view',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProjectTrackerStoryViewComponent implements OnInit {
     public collapse = false;
+    @Input() story: any = {};
+
     constructor() { }
 
     ngOnInit() { }

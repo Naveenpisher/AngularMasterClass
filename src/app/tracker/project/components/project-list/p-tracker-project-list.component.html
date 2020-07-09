@@ -16,23 +16,14 @@
         </div>
         <div class="mt-5">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6" *ngFor="let project of projects">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">ECP OAO</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            <h5 class="card-title">{{project.name}}</h5>
+                            <p class="card-text">{{project.Description}}
                             </p>
-                            <a href="javascript:void(0)" class="btn btn-primary" routerLink="/project-tracker/project">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">ECP Mortgage</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+                            <a href="javascript:void(0)" class="btn btn-primary"
+                                (click)="viewProject(project.id)">View Project</a>
                         </div>
                     </div>
                 </div>

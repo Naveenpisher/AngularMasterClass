@@ -40,12 +40,34 @@ export const mockProjects: any = [
         id: '1',
         name: 'Ecp Oao',
         Description: 'Online Account Opening',
-        role: 'Dev'
+        role: 'Dev',
     },
     {
         id: '2',
         name: 'Ecp Mortgae',
         Description: 'Mortgage details online',
         role: 'Dev'
+    }
+];
+export const mockStories = [
+    {
+        projectId: '1',
+        stories: [
+            {
+                id: '12',
+                name: 'my first Story',
+                description: 'To test detes part'
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part'
+            },
+            {
+                id: '13',
+                name: 'my story Story',
+                description: 'To complasasease design part'
+            }
+        ]
     }
 ];

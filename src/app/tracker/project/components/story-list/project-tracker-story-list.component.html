@@ -1,2 +1,4 @@
 
-<app-project-tracker-story-view></app-project-tracker-story-view>
+<div *ngFor="let story of stories">
+    <app-project-tracker-story-view [story]="story"></app-project-tracker-story-view>
+</div>
