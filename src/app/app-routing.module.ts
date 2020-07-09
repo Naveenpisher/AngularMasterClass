@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'app',
+    path: 'home',
     loadChildren : () => import('./starter/starter.module').then(m => m.StartModule),
+  },
+  {
+    path: 'apps',
+    loadChildren : () => import('./apps/apps.module').then(m => m.AppsOverviewModule),
   },
   {
     path: 'project-tracker',
@@ -12,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/app',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];

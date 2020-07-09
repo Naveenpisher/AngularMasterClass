@@ -18,7 +18,7 @@ import { ErrorInterceptor } from './interceptors/error-handler.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
