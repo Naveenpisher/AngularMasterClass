@@ -4,6 +4,7 @@ import { StarterHomeComponent } from './home/starter-home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './home-content/navbar/navbar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { WelcomeContentComponent } from './home-content/welcome-content/welcome-content.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: NavbarComponent
+                component: WelcomeContentComponent
             },
             {
                 path: 'login',
