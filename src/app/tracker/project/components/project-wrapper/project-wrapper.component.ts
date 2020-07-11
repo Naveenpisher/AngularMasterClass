@@ -17,7 +17,23 @@ export class ProjectTrackerProjectWrapperComponent implements OnInit {
 
   public userInfo: User;
   public projects: any;
+  public currentBacklog: any = [];
+  public icebox: any = [];
+  public showcasePanel: any = {};
   ngOnInit(): void {
+    this.getStories();
+    this.defaultPanel();
+  }
+
+  public defaultPanel() {
+    this.showcasePanel = {
+      showMyWork: true,
+      showCurrentOrBacklog: true,
+      showIcebox: true,
+      showDone: false,
+    }
+  }
+  public getStories() {
     this.userInfo = this.userService.userValue;
     if (this.userInfo && this.userInfo.id) {
       this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -25,6 +41,8 @@ export class ProjectTrackerProjectWrapperComponent implements OnInit {
           this.projectService.getUserProjectDetails(this.userInfo.id, params.projectId).subscribe(
             (projects) => {
               this.projects = projects;
+              this.currentBacklog = projects.stories.stories.filter(t => t && t.level && t.level.currentIteration);
+              this.icebox = projects.stories.stories.filter(t => t && t.level && t.level.icebox);
             },
             (err) => console.log(err)
           );

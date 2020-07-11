@@ -22,7 +22,7 @@ export class LoginComponent {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/project-tracker/dashboard']);
+          this.router.navigate(['/apps']);
           console.log(data);
         },
         error => {

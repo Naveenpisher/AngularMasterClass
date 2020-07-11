@@ -1,17 +1,28 @@
-<div class="w-25">
+<div class="w-100">
     <div>
         <div class="list-group" *ngIf="!collapse">
-            <a href="javascript:void(0);" (click)="collapse = true" class="list-group-item list-group-item-action list-group-item-info">
+            <a href="javascript:void(0);" (click)="collapse = true"
+                class="list-group-item list-group-item-action list-group-item-info">
                 {{story.name}}</a>
         </div>
         <section *ngIf="collapse">
-            <div class="row no-gutters py-1 bg-info align-items-center text-light text-center">
-                <div class="col "><span (click)="collapse=false">^</span></div>
-                <div class="col-10">
-                    <input type="text" value="story.name" name="title" id="titlt" class="form-control border border-dark">
+            <form [formGroup]="storyForm" (ngSubmit)="onStorySubmit()" novalidate>
+                <div formGroupName="story">
+                    <div class="row no-gutters py-1 bg-info align-items-center text-light text-center">
+                        <div class="col "><span (click)="collapse=false">^</span></div>
+                        <div class="col-12">
+                            <input type="text" formControlName="name" name="title" id="titlt"
+                                class="form-control border border-dark">
+                        </div>
+                        <div class="col">%</div>
+                    </div>
+                    <div>
+                        <textarea (change)="textChanges()" #storyDescription name="description" formControlName="description"
+                            class="form-control" id="description" style="resize: none;min-height: 400px;">
+                        </textarea>
+                    </div>
                 </div>
-                <div class="col">%</div>
-            </div>
+            </form>
         </section>
     </div>
 </div>

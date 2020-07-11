@@ -65,8 +65,46 @@ export const mockStories = [
             },
             {
                 id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part'
+            },
+            {
+                id: '13',
+                name: 'Icebox story',
+                description: 'To comasasplease design part',
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
+            },
+            {
+                id: '13',
+                name: 'current iteration',
+                description: 'To comasasplease design part',
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
                 name: 'my story Story',
-                description: 'To complasasease design part'
+                description: 'test \n test'
             }
         ]
     }

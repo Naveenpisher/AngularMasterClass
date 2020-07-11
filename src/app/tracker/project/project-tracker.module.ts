@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectTrackerNavComponent } from './components/navbar/project-tracker-navbar.component';
 import { ProjectTrackerHomeComponent } from './components/home/project-tracker-home.component';
 import { ProjectTrackerDashboardComponent } from './components/dashboard/project-tracker-dashboard.component';
@@ -29,7 +29,8 @@ import { ProjectService } from './services/project.service';
     imports: [
         CommonModule,
         ProjectTrackerRoutingModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [ProjectService],
 })

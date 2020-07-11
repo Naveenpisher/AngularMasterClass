@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-tracker-sidebar',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./project-tracker-sidebar.component.scss']
 })
 export class ProjectTrackerSidebarComponent {
-  title = 'ProjectManagement';
+  @Input() showcasePanel: any;
 }

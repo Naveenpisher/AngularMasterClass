@@ -1,13 +1,20 @@
 <!-- Sidebar -->
 <div class="bg-dark border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading text-light border-bottom border-light">Start Bootstrap </div>
     <div class="list-group list-group-flush text-light">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Status</a>
+        <a href="javascript:void(0)"
+            [ngClass]="{'bg-secondary':showcasePanel.showMyWork,'bg-dark':!showcasePanel.showMyWork }"
+            class="list-group-item list-group-item-action text-light"
+            (click)="showcasePanel.showMyWork= !showcasePanel.showMyWork">My work</a>
+        <a [ngClass]="{'bg-secondary':showcasePanel.showCurrentOrBacklog,'bg-dark':!showcasePanel.showCurrentOrBacklog }"
+            href="javascript:void(0)" class="list-group-item list-group-item-action text-light"
+            (click)='showcasePanel.showCurrentOrBacklog = !showcasePanel.showCurrentOrBacklog '>Current/Backlog</a>
+        <a [ngClass]="{'bg-secondary':showcasePanel.showIcebox,'bg-dark':!showcasePanel.showIcebox}"
+            href="javascript:void(0)" class="list-group-item list-group-item-action text-light"
+            (click)="showcasePanel.showIcebox = !showcasePanel.showIcebox">Icebox</a>
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action bg-dark text-light">Done</a>
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action bg-dark text-light">labels</a>
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action bg-dark text-light">project
+            history</a>
     </div>
 </div>
 <!-- /#sidebar-wrapper -->
