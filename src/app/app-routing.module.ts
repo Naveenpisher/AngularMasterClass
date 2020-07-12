@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren : () => import('./tracker/project/project-tracker.module').then(m => m.ProjectTrackerModule),
   },
   {
+    path: 'todo-app',
+    loadChildren : () => import('./todo/apps/todo-app.module').then(m => m.TodoAppModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

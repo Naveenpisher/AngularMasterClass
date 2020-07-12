@@ -1,0 +1,177 @@
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4 text-primary">ToDo App</h1>
+        <nav class="navbar">
+            <form class="form-inline ml-auto w-25">
+                <input id="search" class="form-control mr-sm-2 d-block w-100" type="search" placeholder="Search here.."
+                    aria-label="Search">
+            </form>
+        </nav>
+        <!-- <p class="lead my-1 text-dark">Enter your todo tasks....</p> -->
+        <form class="my-3" id="formSubmit">
+            <div class="form-group">
+                <!-- <label for="userInput">Add New Task</label> -->
+                <input type="text" class="form-control" id="userInput" aria-describedby="emailHelp"
+                    placeholder="Enter task Name...">
+            </div>
+            <button type="submit" class="btn btn-dark w-25 mb-3 ">Add</button>
+            <!-- <div id="alert" class="alert alert-danger text-center text-dark py-1">
+                Please fill the name name! 
+            </div> -->
+        </form>
+        <ul class="list-group text-primary" id="uList">
+            <li class="list-group-item  text-dark  list-group-item-success"> The Outsider </li>
+            <li class="list-group-item  text-dark list-group-item-success">Educated </li>
+            <li class="list-group-item  text-dark list-group-item-success"> The Woman in the Window </li>
+            <li class="list-group-item  text-dark list-group-item-success"> Becoming </li>
+            <li class="list-group-item  text-dark list-group-item-success">An American Marriage </li>
+            <li class="list-group-item  text-dark list-group-item-success">The Wife Between Us </li>
+            <li class="list-group-item  text-dark list-group-item-success">Still Me </li>
+            <li class="list-group-item  text-dark list-group-item-success">Nine Perfect Strangers </li>
+            <li class="list-group-item  text-dark list-group-item-success last">The Tattooist of Auschwitz </li>
+        </ul>
+    </div>
+</div>
+<!-- <script>
+
+
+
+
+//Getting User submit
+var addEvent = document.getElementById("formSubmit");
+
+//Getting unordered list
+var deleteEvent = document.getElementById("uList");
+
+//Getting User input 
+var input = document.getElementById("userInput");
+
+//Getting alert message box and display none
+var alertMessage = document.getElementById("alert");
+alertMessage.style.display="none";
+
+
+//Getting search box
+var searchEvent = document.getElementById("search");
+
+//Submit event and call back function
+addEvent.addEventListener("submit", function(e){
+
+//Preventing default reload
+e.preventDefault();
+
+
+//condition for alert message
+if(input.value != ""){
+
+ var newList = document.createElement("li");
+ var deleteBtn = document.createElement("span");
+ //creating new list and adding classname and contents
+//var newList = document.createElement("li");
+newList.className = "list-group-item  text-dark list-group-item-info delete ";
+newList.textContent = input.value;
+
+
+
+
+//creating new delete button and adding contents and styles
+//var deleteBtn = document.createElement("span");
+deleteBtn.textContent="X";
+deleteBtn.style.cursor="pointer";
+deleteBtn.className = "float-right badge badge-danger my-1  mr-auto ";
+
+//appending delete button to newlist
+newList.append(deleteBtn);
+
+//appending newlist to unordered list
+deleteEvent.append(newList);
+
+//alert display none
+alertMessage.style.display="none";
+
+}
+//alerting user.
+else{
+ alertMessage.style.display="block";
+}
+
+debugger;
+
+deleteBtn.addEventListener("click",function(){
+ 
+ 
+ this.parentElement.remove();
+ 
+ });
+
+
+});
+
+
+
+
+
+/*
+//Delete event and call back function
+deleteEvent.addEventListener("click", function(e){
+
+ //getting the newlist for delete purpose
+var deleteList = e.target.parentElement;
+
+//condition for delete using classlist contains method
+if(deleteList.classList.contains("delete")){
+ 
+ deleteEvent.removeChild(deleteList);
+
+}
+
+});
+
+*/
+
+//need some clarification!!!!
+
+//search keup and call back.
+searchEvent.addEventListener("keyup", function(e){
+
+
+ //Getting user search input value and convert to lowercase
+var filterText = e.target.value.toLowerCase();
+
+//Getting all lists in unorderList
+var filterList = deleteEvent.getElementsByTagName("li");
+
+//converting Lists (HTML collection) to an Array and looping through each elements 
+Array.from(filterList).forEach(function(item){
+ 
+
+
+//Getting previous list texts
+ var pastListText = item.textContent;
+
+
+ //need some clarification!!!!
+
+
+ if(pastListText.toLowerCase().indexOf(filterText) != -1){
+
+  item.style.display = "block";
+
+
+  //console.log(pastListText);
+  console.log(filterText);
+
+ }
+ else{
+
+  item.style.display = "none";
+
+ }
+
+
+});
+
+});
+
+
+</script> -->
