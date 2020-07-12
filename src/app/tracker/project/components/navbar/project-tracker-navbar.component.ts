@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './project-tracker-navbar.component.html',
 })
 export class ProjectTrackerNavComponent {
-  constructor(private userAuthService: UserAuthService, private router: Router){}
+  constructor(public userAuthService: UserAuthService, private router: Router){}
   title = 'ProjectManagement';
   public logOut() {
     this.userAuthService.logout();

@@ -20,7 +20,7 @@ export class UserAuthService {
         this.userObservable = this.userSubject.asObservable();
     }
 
-    public get userValue(): User {
+    public get userValue(): User | any {
         return this.userSubject.value;
     }
 

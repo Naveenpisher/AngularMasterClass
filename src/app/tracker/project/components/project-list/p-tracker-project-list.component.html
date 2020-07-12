@@ -12,7 +12,7 @@
     </div>
     <section class="pt-5">
         <div>
-            My projects | 2
+            My projects | {{projects ? projects.length: 0}}
         </div>
         <div class="mt-5">
             <div class="row">
@@ -22,8 +22,8 @@
                             <h5 class="card-title">{{project.name}}</h5>
                             <p class="card-text">{{project.Description}}
                             </p>
-                            <a href="javascript:void(0)" class="btn btn-primary"
-                                (click)="viewProject(project.id)">View Project</a>
+                            <a href="javascript:void(0)" class="btn btn-dark" (click)="viewProject(project.id)">View
+                                Project</a>
                         </div>
                     </div>
                 </div>

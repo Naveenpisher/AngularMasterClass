@@ -28,7 +28,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return getUsers();
                 case url.endsWith(`/getUserProjectSummary`) && method === 'GET':
                     const userId = params.get('userId');
-                    return getUserprojects(Number(userId));
+                    return getUserprojects(userId);
                 case url.endsWith(`/getUserProjectDetails`) && method === 'GET':
                     const projectId = params.get('projectId');
                     return getUserprojectDetails(projectId);
@@ -51,7 +51,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             return ok(users);
         }
 
-        function getUserprojects(userId: number) {
+        function getUserprojects(userId: string) {
             if (!isLoggedIn()) { return unauthorized(); }
             const userProjectIds = users.find((user) => user.id === userId).projectTracker.projects.map(
                 project => project.id
@@ -64,10 +64,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             return ok(projects);
         }
 
-        function getUserprojectDetails( projectId: string) {
+        function getUserprojectDetails(projectId: string) {
             if (!isLoggedIn()) { return unauthorized(); }
-            const project = mockProjects.find(project => {
-                return project.id === projectId;
+            const project = mockProjects.find( p => {
+                return p.id === projectId;
             });
             project.stories = mockStories.find(t => t.projectId === project.id);
             return ok(project);

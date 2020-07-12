@@ -5,73 +5,107 @@ export const mockUsers: User[] | any = [
         firstName: 'Naveen',
         lastName: 'Pisher',
         email: 'navin@test.com',
-        id: 1,
+        id: 'u-1',
         password: 'test',
         username: 'naveen.pisher',
         access: {
             projectTrackerAccess: true,
+            timeTrackerAccess: true
         },
         projectTracker: {
             projects: [
                 {
-                    id: '1',
+                    id: 'p-1',
                     roll: 'dev'
                 },
                 {
-                    id: '2',
+                    id: 'p-2',
                     roll: 'dev'
                 }
             ],
             workSpaces: [],
+        },
+        timeTracker: {
+            tracker: true
         }
     },
     {
         firstName: 'Rahul',
         lastName: 'Pisher',
         email: 'rahul@test.com',
-        id: 1,
+        id: 'u-2',
         password: 'test',
         username: 'rahul',
+        access: {
+            projectTrackerAccess: true,
+        },
+        projectTracker: {
+            projects: [
+                {
+                    id: 'p-2',
+                    roll: 'dev'
+                },
+            ],
+            workSpaces: [],
+        }
     },
 ];
 
 export const mockProjects: any = [
     {
-        id: '1',
+        id: 'p-1',
         name: 'Ecp Oao',
         Description: 'Online Account Opening',
         role: 'Dev',
+        members: ['u-1', 'u-2']
     },
     {
-        id: '2',
+        id: 'p-2',
         name: 'Ecp Mortgae',
         Description: 'Mortgage details online',
-        role: 'Dev'
+        role: 'Dev',
+        members: ['u-1']
     }
 ];
 export const mockStories = [
     {
-        projectId: '1',
+        projectId: 'p-1',
         stories: [
             {
                 id: '12',
                 name: 'my first Story',
-                description: 'To test detes part'
+                description: 'To test detes part',
+                owners: ['u-1'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
             },
             {
                 id: '13',
                 name: 'my second Story',
-                description: 'To comasasplease design part'
+                description: 'To comasasplease design part',
+                owners: ['u-1'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
             },
             {
                 id: '13',
                 name: 'my second Story',
-                description: 'To comasasplease design part'
+                description: 'To comasasplease design part',
+                owners: ['u-1,', 'u-2'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
             },
             {
                 id: '13',
                 name: 'Icebox story',
                 description: 'To comasasplease design part',
+                owners: ['u-1,', 'u-2'],
                 level: {
                     currentIteration: false,
                     icebox: true
@@ -89,6 +123,7 @@ export const mockStories = [
                 id: '13',
                 name: 'my second Story',
                 description: 'To comasasplease design part',
+                owners: ['u-1,', 'u-2'],
                 level: {
                     currentIteration: true
                 }
@@ -97,6 +132,7 @@ export const mockStories = [
                 id: '13',
                 name: 'my second Story',
                 description: 'To comasasplease design part',
+                owners: ['u-1,', 'u-2'],
                 level: {
                     currentIteration: true
                 }
@@ -104,7 +140,91 @@ export const mockStories = [
             {
                 id: '13',
                 name: 'my story Story',
-                description: 'test \n test'
+                description: 'test \n test',
+                owners: ['u-2'],
+                level: {
+                    currentIteration: true
+                }
+            }
+        ]
+    },
+    {
+        projectId: 'p-2',
+        stories: [
+            {
+                id: '12',
+                name: 'Project 2',
+                description: 'To test detes part',
+                owners: ['u-2'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                owners: ['u-2'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                owners: ['u-2,', 'u-2'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
+            },
+            {
+                id: '13',
+                name: 'Icebox story',
+                description: 'To comasasplease design part',
+                owners: ['u-2,', 'u-2'],
+                level: {
+                    currentIteration: false,
+                    icebox: true
+                }
+            },
+            {
+                id: '13',
+                name: 'current iteration',
+                description: 'To comasasplease design part',
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                owners: ['u-2,', 'u-2'],
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my second Story',
+                description: 'To comasasplease design part',
+                owners: ['u-2,', 'u-2'],
+                level: {
+                    currentIteration: true
+                }
+            },
+            {
+                id: '13',
+                name: 'my story Story',
+                description: 'test \n test',
+                owners: ['u-2'],
+                level: {
+                    currentIteration: true
+                }
             }
         ]
     }
