@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoAppRoutingModule } from './todo-app.routing-module';
 import { TodoAppHomeComponent } from './components/todo-app-home.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { TodoAppHomeComponent } from './components/todo-app-home.component';
     ],
     imports: [
         CommonModule,
-        TodoAppRoutingModule
+        TodoAppRoutingModule,
+        FormsModule
     ],
     providers: [],
 })

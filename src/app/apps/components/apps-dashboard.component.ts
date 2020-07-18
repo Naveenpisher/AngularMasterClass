@@ -22,4 +22,7 @@ export class AppDashBoardComponent implements OnInit {
     public get showTimeTracker(): boolean {
         return this.userService.userValue?.access?.timeTrackerAccess;
     }
+    public viewTodoApp() {
+        this.router.navigateByUrl('todo-app');
+    }
 }
