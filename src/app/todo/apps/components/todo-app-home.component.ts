@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { TodoAppService } from './../services/todo-app.service';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { TodoAppService } from './../services/todo-app.service';
 
 export class TodoAppHomeComponent implements OnInit {
 
-    constructor(private httpClient: HttpClient, private todoAppService: TodoAppService) { }
+    constructor(private httpClient: HttpClient, public userAuthService: UserAuthService, private todoAppService: TodoAppService) { }
     public todoList: any[] = [];
     public newTodoTask = null;
     baseUrl = 'http://localhost:8000/api';
@@ -78,5 +79,8 @@ export class TodoAppHomeComponent implements OnInit {
             );
         }
         return;
+    }
+    public logOut() {
+        this.userAuthService.logout();
     }
 }

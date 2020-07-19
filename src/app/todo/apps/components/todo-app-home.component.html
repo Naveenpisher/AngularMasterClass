@@ -1,9 +1,24 @@
+<div class="container pt-lg-3">
+    <nav class="navbar navbar-expand-lg navbar-light text-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <button routerLink="/apps" type="button" class="btn btn-light text-dark mr-2">
+                        < back</button>
+                            <button routerLink="/home/sign-up" type="button" (click)="logOut()" class="btn btn-dark">Log
+                                Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 <div class="container mt-5">
     <div class="jumbotron">
         <h1 class="display-4 text-primary">ToDo App</h1>
         <form class="mr-auto" autocomplete="off">
-            <input id="search" class="form-control mr-sm-2 d-block w-50 ml-auto text-light" style="background-color: #cccccc;" name="searchText" type="search"
-                [(ngModel)]="searchText" (ngModelChange)="filterTodo()" placeholder="Search here.." aria-label="Search">
+            <input id="search" class="form-control mr-sm-2 d-block w-50 ml-auto text-light"
+                style="background-color: #cccccc;" name="searchText" type="search" [(ngModel)]="searchText"
+                (ngModelChange)="filterTodo()" placeholder="Search here.." aria-label="Search">
         </form>
         <!-- <p class="lead my-1 text-dark">Enter your todo tasks....</p> -->
         <form class="my-3" id="formSubmit">

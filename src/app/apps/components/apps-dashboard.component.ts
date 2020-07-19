@@ -11,7 +11,7 @@ export class AppDashBoardComponent implements OnInit {
     constructor(private router: Router, public userService: UserAuthService) { }
 
     ngOnInit() {
-        console.log(this.userService.userValue);
+
     }
 
     viewProject() {
@@ -24,5 +24,9 @@ export class AppDashBoardComponent implements OnInit {
     }
     public viewTodoApp() {
         this.router.navigateByUrl('todo-app');
+    }
+
+    public logOut() {
+        this.userService.logout();
     }
 }

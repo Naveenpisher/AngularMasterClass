@@ -14,7 +14,7 @@ export class LoginComponent {
     private router: Router) {
   }
   public userLoginData = {
-    userName : '',
+    userName: '',
     password: '',
   };
   public logIn() {
@@ -23,7 +23,6 @@ export class LoginComponent {
       .subscribe(
         data => {
           this.router.navigate(['/apps']);
-          console.log(data);
         },
         error => {
           console.log(error);

@@ -42,7 +42,6 @@ export class ProjectTrackerProjectWrapperComponent implements OnInit {
           this.projectService.getUserProjectDetails(this.userInfo.id, params.projectId).subscribe(
             (projects) => {
               this.projects = projects;
-              console.log(projects);
               this.currentBacklog = projects.stories.stories.filter(t => t && t.level && t.level.currentIteration);
               this.icebox = projects.stories.stories.filter(t => t && t.level && t.level.icebox);
             },
