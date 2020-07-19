@@ -15,7 +15,7 @@ export class TodoAppService {
     }
 
     public editTodo(todo: any): Observable<any> {
-        return this.httpClient.put(`${environment.apiUrl}/todoApp/${todo.id}`, { id: todo.id, taskName: todo.taskName })
+        return this.httpClient.put(`${environment.apiUrl}/todoApp/${todo.id}`, { id: todo.id, taskName: todo.taskName });
     }
     public deleteTodo(todo: any): Observable<any> {
         return this.httpClient.delete(`${environment.apiUrl}/todoApp/${todo.id}`);

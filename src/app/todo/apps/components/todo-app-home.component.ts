@@ -30,9 +30,8 @@ export class TodoAppHomeComponent implements OnInit {
     }
     public addNewToDo() {
         this.loadSpinner = true;
-        this.todoAppService.addNewToDo({ id: this.todoList.length + 1, taskName: this.newTodoTask })
+        this.todoAppService.addNewToDo({ taskName: this.newTodoTask })
             .subscribe((data: any[]) => {
-                // this.todoList = data;
                 this.getTodoTasks();
             }, (err) => console.log(err));
         this.newTodoTask = '';
