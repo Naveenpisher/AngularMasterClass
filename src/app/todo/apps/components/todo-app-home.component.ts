@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { TodoAppService } from './../services/todo-app.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class TodoAppHomeComponent implements OnInit {
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient, private todoAppService: TodoAppService) { }
     public todoList: any[] = [];
     public newTodoTask = null;
     baseUrl = 'http://localhost:8000/api';
@@ -20,17 +21,16 @@ export class TodoAppHomeComponent implements OnInit {
     public editTodoId: number;
     public loadSpinner = true;
     public nonFilteredList: any[];
-    public getTodoTasks(): any {
-        this.httpClient.get(`${this.baseUrl}/todoApp`).subscribe((data: any[]) =>
-            (this.todoList = data, this.nonFilteredList = data, this.loadSpinner = false), (err) => console.log(err));
-    }
     ngOnInit(): void {
         this.getTodoTasks();
     }
-
+    public getTodoTasks(): any {
+        this.todoAppService.getTodoTasks().subscribe((data: any[]) =>
+            (this.todoList = data, this.nonFilteredList = data, this.loadSpinner = false), (err) => console.log(err));
+    }
     public addNewToDo() {
         this.loadSpinner = true;
-        this.httpClient.post(`${this.baseUrl}/todoApp`, { id: this.todoList.length + 1, taskName: this.newTodoTask })
+        this.todoAppService.addNewToDo({ id: this.todoList.length + 1, taskName: this.newTodoTask })
             .subscribe((data: any[]) => {
                 // this.todoList = data;
                 this.getTodoTasks();
@@ -54,7 +54,7 @@ export class TodoAppHomeComponent implements OnInit {
         this.loadSpinner = true;
         this.todoList = [];
         this.nonFilteredList = [];
-        this.httpClient.put(`${this.baseUrl}/todoApp/${this.editTodoId}`, { id: this.editTodoId, taskName: this.newTodoTask }).subscribe(
+        this.todoAppService.editTodo({ id: this.editTodoId, taskName: this.newTodoTask }).subscribe(
             (data => (console.log(data), this.getTodoTasks())), (err => (console.log(err), this.loadSpinner = false))
         );
         this.updateBtn = null;
@@ -67,12 +67,11 @@ export class TodoAppHomeComponent implements OnInit {
         this.newTodoTask = null;
     }
     public deleteTodo(todo: any) {
-
         if (window.confirm(`Are you sure want to delete ${todo.taskName}`)) {
             this.loadSpinner = true;
             this.todoList = [];
             this.nonFilteredList = [];
-            this.httpClient.delete(`${this.baseUrl}/todoApp/${todo.id}`).subscribe(
+            this.todoAppService.deleteTodo(todo).subscribe(
                 (data) => {
                     console.log((data));
                     this.getTodoTasks();

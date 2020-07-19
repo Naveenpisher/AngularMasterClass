@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class TodoAppService {
     constructor(private httpClient: HttpClient) { }
-
-    baseUrl = 'http://localhost:8000/api';
     public getTodoTasks(): Observable<any> {
-        return this.httpClient.get(`${this.baseUrl}/todoApp`);
+        return this.httpClient.get(`${environment.apiUrl}/todoApp`);
+    }
+
+    public addNewToDo(todo: any): Observable<any> {
+        return this.httpClient.post(`${environment.apiUrl}/todoApp`, todo);
+    }
+
+    public editTodo(todo: any): Observable<any> {
+        return this.httpClient.put(`${environment.apiUrl}/todoApp/${todo.id}`, { id: todo.id, taskName: todo.taskName })
+    }
+    public deleteTodo(todo: any): Observable<any> {
+        return this.httpClient.delete(`${environment.apiUrl}/todoApp/${todo.id}`);
     }
 }
